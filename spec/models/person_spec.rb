@@ -27,8 +27,6 @@ describe Person do
 
   describe ".managers_by_average_salary_difference" do
     it "orders managers by the difference between their salary and the average salary of their employees" do
-      pending "Implement managers_by_average_salary_difference to make this spec pass"
-
       highest_difference = [45_000, 20_000]
       medium_difference = [50_000, 10_000]
       lowest_difference = [50_000, -5_000]

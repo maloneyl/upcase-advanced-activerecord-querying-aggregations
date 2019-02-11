@@ -9,6 +9,15 @@ class Person < ActiveRecord::Base
   end
 
   def self.managers_by_average_salary_difference
-    all
+    joins(
+      "INNER JOIN (" +
+        self.
+          select("manager_id, AVG(salary) as average_employee_salary").
+          group("manager_id").
+          to_sql +
+      ") salaries " \
+      "ON salaries.manager_id = people.id"
+    ).
+    order("(people.salary - salaries.average_employee_salary) DESC")
   end
 end
