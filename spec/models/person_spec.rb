@@ -3,8 +3,6 @@ require "spec_helper"
 describe Person do
   describe ".maximum_salary_by_location" do
     it "finds the highest salary at each location" do
-      pending "Implement maximum_salary_by_location to make this spec pass"
-
       [50_000, 60_000].each do |highest_salary|
         location = create(:location, name: "highest-#{highest_salary}")
         create(:person, location: location, salary: highest_salary - 1)
